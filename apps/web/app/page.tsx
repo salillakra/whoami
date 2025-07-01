@@ -1,12 +1,14 @@
-import { Button } from "@workspace/ui/components/button"
+import About from "@/components/home/About";
+import Hero from "@/components/home/Hero";
+import React from "react";
 
-export default function Page() {
+const Page = () => {
   return (
-    <div className="flex items-center justify-center min-h-svh">
-      <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Hello World</h1>
-        <Button size="sm">Button</Button>
-      </div>
-    </div>
-  )
-}
+    <main className="relative">
+      <Hero />
+      <About />
+    </main>
+  );
+};
+
+export default Page;

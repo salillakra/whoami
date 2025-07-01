@@ -1,30 +1,42 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Inter } from "next/font/google";
+import { Metadata } from "next";
+import "@workspace/ui/globals.css";
+import "./index.css";
+import { Providers } from "@/components/providers";
+import Navbar from "@/components/layouts/Navbar";
+import AniCursor from "@/components/animations/AniCursor";
+import { InteractiveBackground } from "@/components/InteractiveBackground";
 
-import "@workspace/ui/globals.css"
-import { Providers } from "@/components/providers"
-
-const fontSans = Geist({
+const font = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
-})
+  display: "swap",
+  variable: "--font-inter",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  preload: true,
+  fallback: ["system-ui", "sans-serif"],
+});
 
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+export const metadata: Metadata = {
+  title: "LiLsa | Fullstack Developer ",
+  description:
+    "A fullstack developer with a passion for building web and mobile applications. and a love for learning new technologies.",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
-      >
-        <Providers>{children}</Providers>
+      <body className={`${font.className} antialiased`}>
+        <Providers>
+          <InteractiveBackground />
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
-  )
+  );
 }
