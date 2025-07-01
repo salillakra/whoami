@@ -1,0 +1,18 @@
+@import "@workspace/ui/globals.css";
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "Italianno";
+  src: url("/fonts/Italianno-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-italiano {
+  font-family: "Italianno";
+}
